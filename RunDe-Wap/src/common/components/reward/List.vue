@@ -29,6 +29,9 @@
 </template>
 
 <script>
+/**
+ * 打赏列表组件
+ * */
 import HuodeScene from "common/websdk/live";
 import Mixins from "common/mixins";
 

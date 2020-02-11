@@ -14,6 +14,9 @@
 </template>
 
 <script>
+/**
+ * 课程列表容器组件（课程列表父组件）
+ * */
 import CurriculumList from "./List";
 
 export default {

@@ -21,6 +21,9 @@
 </template>
 
 <script>
+/**
+ * 礼物列表组件
+ * */
 import CommonSwiper from "components/swiper/Swiper";
 
 export default {

@@ -35,6 +35,9 @@
 </template>
 
 <script>
+/**
+ * 聊天表情组件
+ * */
 import CommonSwiper from "components/swiper/Swiper";
 
 export default {

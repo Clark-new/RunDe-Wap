@@ -42,6 +42,9 @@
 </template>
 
 <script>
+/**
+ * 聊天入口组件
+ * */
 import ChatsContent from "./components/Content";
 import ChatsFooter from "./components/Footer";
 import CommonPlus from "components/plus/Plus";

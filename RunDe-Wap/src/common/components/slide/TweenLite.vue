@@ -5,6 +5,9 @@
 </template>
 
 <script>
+/**
+ * 数字跳动组件
+ * */
 import { TweenLite } from "gsap";
 
 export default {

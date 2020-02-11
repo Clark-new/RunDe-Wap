@@ -53,6 +53,9 @@
 </template>
 
 <script>
+/**
+ * 移动端观看直播登录组件
+ * */
 import { mapState, mapMutations, mapGetters } from "vuex";
 
 export default {

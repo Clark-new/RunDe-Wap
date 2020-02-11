@@ -22,6 +22,9 @@
 </template>
 
 <script>
+/**
+ * 小窗口组件
+ * */
 import LivePlayer from "../player/Player";
 import Mixins from "common/mixins";
 import VueDragResize from "vue-drag-resize";

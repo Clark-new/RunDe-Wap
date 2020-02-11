@@ -5,6 +5,9 @@
 </template>
 
 <script>
+/**
+ * 播放器组件
+ * */
 import HuodeScene from "common/websdk/live";
 import Mixins from "common/mixins";
 import { mapState, mapMutations } from "vuex";

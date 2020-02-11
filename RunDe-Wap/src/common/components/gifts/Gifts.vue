@@ -34,6 +34,9 @@
 </template>
 
 <script>
+/**
+ * 礼物提示组件
+ * */
 import GiftsList from "./List";
 import HuodeScene from "common/websdk/live";
 

@@ -38,6 +38,9 @@
 </template>
 
 <script>
+/**
+ * 控制器组件
+ * */
 import ControlsPlay from "./components/Play";
 import ControlsBack from "./components/Back";
 import ControlsControl from "./components/Control";

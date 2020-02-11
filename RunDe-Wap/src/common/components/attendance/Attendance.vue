@@ -70,6 +70,9 @@ export default {
           this.status = "timer";
           this.startTimer();
         }
+        // 接收到签到时，如果时全屏状态，需要取消全屏
+        this.bus.$emit("exitFullscreen");
+        log("onStartAttendance exitFullscreen");
       });
       this.hd.onEndAttendance(result => {
         log("onEndAttendance", result);

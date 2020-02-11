@@ -7,6 +7,9 @@
 </template>
 
 <script>
+/**
+ * 简介组件
+ * */
 export default {
   name: "Introduce"
 };

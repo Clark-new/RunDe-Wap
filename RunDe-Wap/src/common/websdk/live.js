@@ -1,3 +1,6 @@
+/**
+ * 观看直播 WEB SDK 方法封装
+ * */
 let DWLive = window.DWLive;
 
 class HuodeScene {

@@ -14,6 +14,9 @@
 </template>
 
 <script>
+/**
+ * 聊天内容显示组件（展示所有聊天容器）
+ * */
 import BScroll from "better-scroll";
 import ContentChat from "./Chat";
 import { log } from "common/utils";

@@ -1,4 +1,8 @@
 /* eslint-disable */
+/**
+ * 公共js功能库
+ * */
+// 关闭所有console.log输出
 window.DEBUG = true;
 
 export function isAddress(address = "") {

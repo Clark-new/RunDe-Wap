@@ -5,6 +5,9 @@
 </template>
 
 <script>
+/**
+ * 文档组件
+ * */
 export default {
   name: "Document"
 };

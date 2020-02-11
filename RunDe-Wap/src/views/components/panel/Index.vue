@@ -13,6 +13,9 @@
 </template>
 
 <script>
+/**
+ * 显示昵称和在线人数入口组件
+ * */
 import Panel from "./components/Panel";
 import HuodeScene from "common/websdk/live";
 

@@ -1,5 +1,7 @@
 /* eslint-disable */
-
+/**
+ * 全屏功能库
+ * */
 export default class FullScreen {
   _target = {}
 

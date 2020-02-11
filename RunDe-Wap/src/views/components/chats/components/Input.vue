@@ -11,6 +11,9 @@
 </template>
 
 <script>
+/**
+ * 聊天输入框组件
+ * */
 export default {
   name: "Input",
   props: {

@@ -7,6 +7,9 @@
 </template>
 
 <script>
+/**
+ * 点赞功能 粒子组件
+ * */
 export default {
   name: "Heart",
   computed: {

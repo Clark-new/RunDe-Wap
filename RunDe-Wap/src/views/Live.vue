@@ -57,6 +57,9 @@
 </template>
 
 <script>
+/**
+ * 移动端观看直播入口组件
+ * */
 import MainWindows from "./components/windows/MainWindows";
 import SubWindows from "./components/windows/SubWindows";
 import LivePanel from "./components/panel/Index";
@@ -67,36 +70,47 @@ import { mapMutations } from "vuex";
 import { log } from "common/utils";
 import Mixins from "common/mixins";
 
+// 直播控制器组件
 const LiveControls = () => ({
   component: import("./components/controls/Controls")
 });
+// 底部弹框组件
 const CommonPopup = () => ({
   component: import("components/popup/Popup")
 });
+// 课程列表组件
 const CommonCurriculum = () => ({
   component: import("components/curriculum/Curriculum")
 });
+// 礼物组件
 const CommonGifts = () => ({
   component: import("components/gifts/Gifts")
 });
+// 打赏组件
 const CommonReward = () => ({
   component: import("components/reward/Reward")
 });
+// 问卷组件
 const CommonQuestionnaire = () => ({
   component: import("common/components/questionnaire/Questionnaire")
 });
+// 签到组件
 const CommonAttendance = () => ({
   component: import("common/components/attendance/Attendance")
 });
+// 直播目录组件
 const LiveLists = () => ({
   component: import("./components/lists/Lists")
 });
+// 简介组件
 const LiveIntroduce = () => ({
   component: import("./components/introduce/Introduce")
 });
+// 公告组件
 const CommonAnnouncement = () => ({
   component: import("common/components/announcement/CommonAnnouncement")
 });
+// 禁言组件
 const CommonSilent = () => ({
   component: import("common/components/silent/CommonSilent")
 });
@@ -200,6 +214,8 @@ export default {
         if (data.success) {
           this.formateQuestionnaire(data.datas);
         }
+        // 接收到问卷时，如果时全屏状态，需要取消全屏
+        this.emit("exitFullscreen");
       });
     },
     showPopup(options) {

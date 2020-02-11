@@ -15,6 +15,9 @@
 </template>
 
 <script>
+/**
+ * 禁言组件
+ * */
 import HuodeScene from "common/websdk/live";
 import { log } from "common/utils";
 

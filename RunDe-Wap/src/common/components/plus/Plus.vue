@@ -18,6 +18,9 @@
 </template>
 
 <script>
+/**
+ * 选择更多功能组件
+ * */
 export default {
   name: "Plus",
   methods: {

@@ -48,6 +48,9 @@ export default {
           return false;
         }
         this.info = data;
+        // 接收到公告时，如果时全屏状态，需要取消全屏
+        this.bus.$emit("exitFullscreen");
+        log("onAnnouncement exitFullscreen");
       });
     },
     handleFooterButtonClick() {

@@ -21,6 +21,9 @@
 </template>
 
 <script>
+/**
+ * 显示昵称和在线人数组件
+ * */
 export default {
   name: "Panel",
   props: {

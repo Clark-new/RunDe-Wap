@@ -38,6 +38,9 @@
 </template>
 
 <script>
+/**
+ * 打赏和礼物划入动画组件
+ * */
 import TweenLite from "./TweenLite";
 
 export default {
@@ -106,6 +109,7 @@ export default {
       clearInterval(this.timer);
       this.timer = 0;
     },
+    // 轮询检测是否有打赏或礼物提示划入
     timeupdate() {
       if (!this.cacheOptions.length) {
         this.stopTimer();
@@ -139,7 +143,7 @@ export default {
   width 520px
   height 100px
   background linear-gradient(90deg, rgba(255, 113, 129, 1) 0%, rgba(255, 81, 81, 1) 100%)
-  padding-left 56px
+  padding-left 40px
   box-sizing border-box
   top 0
   .left

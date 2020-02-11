@@ -14,6 +14,9 @@
 </template>
 
 <script>
+/**
+ * 打赏组件入口容器
+ * */
 import RewardList from "./List";
 
 export default {

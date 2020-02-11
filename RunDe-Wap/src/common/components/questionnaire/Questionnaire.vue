@@ -77,6 +77,9 @@
 </template>
 
 <script>
+/**
+ * 问卷组件
+ * */
 import AnimationFade from "common/components/animation/fade/Fade";
 import HuodeScene from "common/websdk/live";
 import { log } from "common/utils";

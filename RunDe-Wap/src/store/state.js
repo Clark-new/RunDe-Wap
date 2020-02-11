@@ -13,6 +13,7 @@ function getDefaultUrl() {
   return defaultUrl;
 }
 
+// 配置移动端直播目录列表
 function lists() {
   const lists = [
     {

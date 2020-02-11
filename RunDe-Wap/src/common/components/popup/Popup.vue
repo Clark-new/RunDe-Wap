@@ -12,6 +12,10 @@
 </template>
 
 <script>
+/**
+ * 底部弹出框组件
+ * */
+
 export default {
   name: "Popup",
   props: {

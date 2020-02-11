@@ -13,6 +13,9 @@
 </template>
 
 <script>
+/**
+ * 点赞组件
+ * */
 import Heart from "./Heart";
 import Tap from "./Tap";
 import Flutter from "./Flutter";

@@ -5,6 +5,9 @@
 </template>
 
 <script>
+/**
+ * 点赞功能 点击按钮组件
+ * */
 export default {
   name: "Tap"
 };

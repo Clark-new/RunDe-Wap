@@ -36,6 +36,9 @@
 </template>
 
 <script>
+/**
+ * 聊天主业务逻辑组件
+ * */
 import ChatsInput from "./Input";
 import STATE from "./state";
 import Mixins from "common/mixins";
@@ -265,6 +268,7 @@ export default {
         } else {
           show = true;
         }
+        // 聊天信息数据结构
         const formatMsg = {
           userAvatar: _msg.useravatar || require("images/header.png"),
           userName: _msg.username,
@@ -280,11 +284,15 @@ export default {
           show: show,
           active: active
         };
+        // 将接收到的聊天信息数据添加到信息池中
         this.messages.push(formatMsg);
+        // 发送弹幕
         this.sendBarrage(_msg);
         if (this.isScroll) {
+          // 聊天列表滚动到底部
           this.emit("scrolltobottom");
         }
+        // 发送礼物或打赏提示信息
         this.sendTip(_msg);
       });
     },
@@ -295,10 +303,12 @@ export default {
         });
         return false;
       }
+      // 整理打赏或礼物信息数据结构
       const tip = formatRewardAndGiftToTip(msg);
       if (!tip) {
         return false;
       }
+      // 触发打赏划入提示动画
       this.tipOption = tip;
     },
     onChange(value) {

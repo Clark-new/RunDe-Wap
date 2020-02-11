@@ -24,6 +24,9 @@
 </template>
 
 <script>
+/**
+ * 课程列表组件
+ * */
 export default {
   name: "List",
   props: {

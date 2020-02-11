@@ -24,6 +24,9 @@
 </template>
 
 <script>
+/**
+ * 直播目录组件
+ * */
 import BScroll from "better-scroll";
 import { mapState } from "vuex";
 import { log } from "common/utils";

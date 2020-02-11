@@ -9,6 +9,9 @@
 </template>
 
 <script>
+/**
+ * 主窗口组件
+ * */
 import LiveDocument from "../document/Document";
 import FullScreen from "common/fullscreen";
 import Mixins from "common/mixins";
@@ -48,6 +51,11 @@ export default {
         this.fullscreen.exitFullscreen();
       } else {
         this.fullscreen.webFullScreen();
+      }
+    });
+    this.on("exitFullscreen", () => {
+      if (this.screenState) {
+        this.fullscreen.exitFullscreen();
       }
     });
   }
