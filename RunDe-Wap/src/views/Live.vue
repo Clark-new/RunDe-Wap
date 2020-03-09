@@ -410,7 +410,7 @@ export default {
   display flex
   flex-direction column
   .top
-    height 462px
+    height 420px
   .center
     height auto
   .bottom

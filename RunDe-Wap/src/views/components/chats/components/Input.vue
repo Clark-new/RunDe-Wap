@@ -14,8 +14,11 @@
 /**
  * 聊天输入框组件
  * */
+import Mixins from "common/mixins";
+
 export default {
   name: "Input",
+  mixins: [Mixins],
   props: {
     message: {
       type: String,
@@ -26,7 +29,8 @@ export default {
     return {
       value: "",
       maxlength: 300,
-      placeholder: "在这里和老师互动哦"
+      placeholder: "在这里和老师互动哦",
+      isFoucs: false
     };
   },
   computed: {
@@ -44,9 +48,11 @@ export default {
   },
   methods: {
     onFocus(event) {
+      this.isFoucs = true;
       this.$emit("focus", event);
     },
     onBlur(event) {
+      this.isFoucs = false;
       this.$emit("blur", event);
     },
     focus() {
@@ -55,6 +61,13 @@ export default {
     blur() {
       this.field.blur();
     }
+  },
+  mounted() {
+    this.on("clickBetterScroll", () => {
+      if (this.isFoucs) {
+        this.field.blur();
+      }
+    });
   }
 };
 </script>

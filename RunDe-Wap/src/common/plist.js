@@ -103,7 +103,8 @@ export const EmoticonList = [
 
 export function translateWXEm(message) {
   var msg = message;
-  var reg = new RegExp(/\[[\u4e00-\u9fa5]{1,2}\]/gi);
+  // var reg = new RegExp(/\[[\u4e00-\u9fa5]{1,2}\]/gi);
+  var reg = new RegExp(/\[[\w]{1,2}\]|\[[\u4e00-\u9fa5]{1,3}\]/gi);
   var arrs = [];
   while ((arrs = reg.exec(msg)) != null) {
     var mark = arrs[0]; // [微笑]

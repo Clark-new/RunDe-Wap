@@ -47,6 +47,11 @@ export default {
     openSubWindows() {
       this.$emit("open");
     }
+  },
+  mounted() {
+    this.bus.$on("update:switch", () => {
+      this.handlSwitchClick();
+    });
   }
 };
 </script>

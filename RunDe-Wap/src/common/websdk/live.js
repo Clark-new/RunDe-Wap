@@ -257,8 +257,16 @@ class HuodeScene {
     };
   }
 
+  // 接受公聊事件
   onPublicChatMessage(callback) {
     DWLive.onPublicChatMessage = function(message) {
+      callback && callback(message);
+    };
+  }
+
+  // 聊天审核事件
+  onPublicChatLogManage(callback) {
+    DWLive.onPublicChatLogManage = function(message) {
       callback && callback(message);
     };
   }

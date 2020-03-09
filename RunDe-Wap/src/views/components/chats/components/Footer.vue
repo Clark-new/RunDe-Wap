@@ -96,7 +96,16 @@ export default {
   computed: {
     ...mapState(["viewer"]),
     limitMessages() {
-      const messages = [...this.messages];
+      let messages = [...this.messages];
+      messages = messages.filter(item => {
+        if (item.userId === this.viewer.id) {
+          return true;
+        } else if (item.status === "0") {
+          return true;
+        } else {
+          return false;
+        }
+      });
       return messages.splice(-this.messagesLength);
     },
     verify() {
@@ -250,6 +259,20 @@ export default {
       this.on("emoticon", mark => {
         this.onEmoticon(mark);
       });
+      this.hd.onPublicChatLogManage(datas => {
+        var data = JSON.parse(datas);
+        var status = data.status;
+        var chatIds = data.chatIds;
+        for (var i = 0; i < chatIds.length; i++) {
+          var id = chatIds[i];
+          this.messages.forEach(item => {
+            if (item.chatId === id) {
+              item.status = status;
+            }
+          });
+        }
+        this.$emit("messages", this.limitMessages);
+      });
       this.hd.onPublicChatMessage(message => {
         const _msg = JSON.parse(message);
         const self = this.viewer.id === _msg.userid;
@@ -363,7 +386,8 @@ export default {
 @import '~styles/mixins.styl'
 
 .footer-wrapper
-  wrapper()
+  height 98px
+  width 100%
   padding 14px 30px
   box-sizing border-box
   border-top 1px solid $eee

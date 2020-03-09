@@ -64,6 +64,7 @@ export default {
 @import "~styles/mixins.styl"
 
 .announcement-wrap
+  top: 0
   position fixed
   width-height-full()
   background-color rgba(0, 0, 0, 0.5)

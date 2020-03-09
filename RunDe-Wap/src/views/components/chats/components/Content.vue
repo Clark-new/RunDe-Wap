@@ -1,6 +1,6 @@
 <template>
   <div class="content-wrapper">
-    <div class="chats-container" ref="Container">
+    <div class="chats-container" ref="Container" @click="handleClick">
       <div class="chats-group" ref="Group">
         <content-chat
           v-for="(message, key) of messages"
@@ -73,11 +73,15 @@ export default {
         this.scroll.refresh();
         this.scroll.scrollToElement(lastElementChild);
       });
+    },
+    handleClick() {
+      this.emit("clickBetterScroll");
     }
   },
   mounted() {
     const Container = this.Container;
     this.scroll = new BScroll(Container, {
+      click: true,
       scrollbar: {
         fade: true,
         interactive: false

@@ -174,6 +174,8 @@ export default {
       active-image("pop/fail")
       color transparent
     .attendance-title
+      width 100%
+      text-align center
       baseTextStyle(36px, $c333, $boldFontWeight)
     .attendance-sub
       baseTextStyle(30px, $c999)

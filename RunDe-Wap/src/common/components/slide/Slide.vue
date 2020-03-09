@@ -181,4 +181,7 @@ export default {
       font-size 48px
     .tip-number
       vertical-align middle
+      display inline-block
+      min-width 60px
+      padding 2px 5px
 </style>

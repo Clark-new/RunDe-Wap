@@ -14,6 +14,9 @@
         <div class="close-wrap" v-show="showClose">
           <div class="close-icon"></div>
         </div>
+        <div class="switch-btn-wrap" v-show="showClose">
+          <span class="switch-btn-icon"></span>
+        </div>
         <!--      <component :is="component" ref="component"></component>-->
         <live-player ref="player"></live-player>
       </div>
@@ -123,8 +126,11 @@ export default {
     },
     onClicked(event) {
       const target = event.target;
+      console.log(target.className);
       if (target.className === "close-icon") {
         this.handleClose();
+      } else if (target.className === "switch-btn-icon") {
+        this.emit("update:switch");
       } else {
         this.handleSubClick();
       }
@@ -185,7 +191,7 @@ export default {
 .sub-windows-wrapper
   position absolute
   left 0
-  top 462px
+  top 420px
   z-index 1
   width 300px
   height 168px
@@ -202,6 +208,13 @@ export default {
       z-index 1
       .close-icon
         bg-image('close', 40)
+    .switch-btn-wrap
+      position absolute
+      bottom 10px
+      right 10px
+      z-index 1
+      .switch-btn-icon
+        bg-image('switch')
 .special-course
   top 542px
 </style>

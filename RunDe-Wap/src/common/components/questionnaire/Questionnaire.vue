@@ -282,6 +282,7 @@ export default {
 @import "~styles/mixins.styl"
 
 .questionnaire-wrapper
+  top 0
   position fixed
   z-index 2
   width-height-full()

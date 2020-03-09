@@ -143,10 +143,12 @@ export default {
 .chats-wrapper
   width-height-full()
   display flex
+  display -webkit-box
   flex-direction column
   .chats-container
     position relative
     flex 1
+    -webkit-box-flex 1
     .chats-top
       layout(0, 0, 198px, 0)
     .chats-bottom
@@ -172,6 +174,7 @@ export default {
             >>> .van-checkbox__icon
               height 100%
             >>> .van-checkbox__label
+              width 120px
               line-height 40px
             .leach__img
               width-height-same(40px)
