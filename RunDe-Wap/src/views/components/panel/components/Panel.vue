@@ -24,6 +24,8 @@
 /**
  * 显示昵称和在线人数组件
  * */
+import { mapState } from "vuex";
+
 export default {
   name: "Panel",
   props: {
@@ -40,8 +42,15 @@ export default {
       default: true
     }
   },
+  computed: {
+    ...mapState(["allowChat"])
+  },
   methods: {
     handleSendGiftClick() {
+      if (!this.allowChat) {
+        this.bus.$emit("allowChat", this.allowChat);
+        return false;
+      }
       this.$emit("opengift");
     }
   }

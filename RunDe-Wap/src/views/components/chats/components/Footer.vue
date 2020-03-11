@@ -94,7 +94,7 @@ export default {
     }
   },
   computed: {
-    ...mapState(["viewer"]),
+    ...mapState(["viewer", "allowChat"]),
     limitMessages() {
       let messages = [...this.messages];
       messages = messages.filter(item => {
@@ -180,6 +180,10 @@ export default {
       }
     },
     onGiftsClick() {
+      if (!this.allowChat) {
+        this.bus.$emit("allowChat", this.allowChat);
+        return false;
+      }
       const options = {
         component: "Common" + this.initialToUpperCase(this.giftsOne.state)
       };

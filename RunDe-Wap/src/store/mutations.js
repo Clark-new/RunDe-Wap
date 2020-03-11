@@ -14,5 +14,8 @@ export default {
   },
   setTemplate(state, template) {
     state.template = template;
+  },
+  changeAllowChat(state, status) {
+    state.allowChat = status;
   }
 };

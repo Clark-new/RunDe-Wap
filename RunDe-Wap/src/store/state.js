@@ -4,7 +4,8 @@ export default {
   screenState: false,
   viewer: {},
   template: {},
-  lists: lists()
+  lists: lists(),
+  allowChat: true
 };
 
 function getDefaultUrl() {

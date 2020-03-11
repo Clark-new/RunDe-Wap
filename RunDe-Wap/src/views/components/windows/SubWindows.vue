@@ -126,7 +126,6 @@ export default {
     },
     onClicked(event) {
       const target = event.target;
-      console.log(target.className);
       if (target.className === "close-icon") {
         this.handleClose();
       } else if (target.className === "switch-btn-icon") {

@@ -21,13 +21,22 @@
 /**
  * 选择更多功能组件
  * */
+import { mapState } from "vuex";
+
 export default {
   name: "Plus",
+  computed: {
+    ...mapState(["allowChat"])
+  },
   methods: {
     emit(event, options) {
       this.bus.$emit(event, options);
     },
     handleRewardClick() {
+      if (!this.allowChat) {
+        this.bus.$emit("allowChat", this.allowChat);
+        return false;
+      }
       const options = {
         component: "CommonReward"
       };
