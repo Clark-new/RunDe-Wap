@@ -106,8 +106,9 @@ export default {
           mMsg: options.msg,
           color: options.color || "#FFF",
           strokeColor: options.strokeColor || "#000",
-          fontSize: options.fontSize || 16,
-          fontFamily: options.fontFamily || "PingFang SC"
+          fontSize: options.fontSize || 18,
+          fontFamily:
+            options.fontFamily || "Roboto,HelveticaNeue,Arial,sans-serif"
         })
       );
     },
