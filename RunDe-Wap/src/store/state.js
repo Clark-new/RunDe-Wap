@@ -1,5 +1,5 @@
 export default {
-  url: getDefaultUrl(),
+  url: "",
   playState: false,
   screenState: false,
   viewer: {},

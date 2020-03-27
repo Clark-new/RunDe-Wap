@@ -2,7 +2,7 @@ module.exports = {
   lintOnSave: true,
   publicPath:
     process.env.NODE_ENV === "production"
-      ? "/branches/demo-runde/runde-mobile/dist/"
+      ? "runde/"
       : "/",
   configureWebpack: {
     resolve: {

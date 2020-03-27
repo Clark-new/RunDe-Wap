@@ -56,7 +56,15 @@
                 </van-cell-group>
               </van-checkbox-group>
             </div>
+
             <div class="questionnaire-footer-wrap">
+              <div
+                      class="questionnaire-footer-btn-wrap"
+                      @click="onclickResult"
+                      v-show="isShowResult"
+              >
+                <div class="questionnaire-footer-btn">我知道了</div>
+              </div>
               <div
                 class="questionnaire-footer-btn-wrap"
                 @click="onSubmit"
@@ -127,6 +135,7 @@ export default {
       }
       return result;
     }
+
   },
   watch: {
     questionnaire() {
@@ -134,7 +143,12 @@ export default {
       this.isShowQuestionnaire = true;
       this.disabled = false;
       this.result = [];
+
+    },
+    isShowQuestionnaireWrapper(a,b){
+      this.bus.$emit("controlVideoPanel",b)//开始弹框浮层后隐藏video元素
     }
+
   },
   methods: {
     isActive(key) {
@@ -177,6 +191,9 @@ export default {
     },
     onClose() {
       this.isShowQuestionnaireWrapper = false;
+      this.isShowQuestionnaire = false;
+    },
+    onclickResult(){
       this.isShowQuestionnaire = false;
     },
     onSubmit() {

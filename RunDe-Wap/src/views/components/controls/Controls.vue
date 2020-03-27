@@ -117,7 +117,11 @@ export default {
     sendDanmaku(msg) {
       if (this.checked) {
         this.danmaku.sendDanmaku({
-          msg: msg
+          msg: msg,
+          color:"#000",
+          strokeColor:"#000",
+          fontSize:20
+
         });
       }
     },

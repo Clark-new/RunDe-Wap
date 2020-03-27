@@ -2,7 +2,7 @@
   <div
     class="chat-item"
     :class="{ 'chat-right': isRight }"
-    v-if="isShow && isNull"
+    v-show="isShow && isNull"
   >
     <img class="chat-header" :src="message.userAvatar" />
     <span class="chat-tag" v-show="role">
@@ -64,7 +64,12 @@ export default {
     }
   },
   mounted() {
-    this.isShow = this.message.show;
+    if (this.message.active) {
+
+      this.isShow = this.show;
+    } else {
+      this.isShow = true;
+    }
   }
 };
 </script>

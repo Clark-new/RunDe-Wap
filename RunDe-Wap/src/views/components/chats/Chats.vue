@@ -117,7 +117,7 @@ export default {
     },
     onMessages(messages) {
       this.messages = messages;
-      this.closePopup();
+      // this.closePopup();
     },
     onChange() {
       this.emit("scrolltobottom");

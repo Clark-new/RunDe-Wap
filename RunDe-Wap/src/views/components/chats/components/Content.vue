@@ -5,7 +5,7 @@
         <content-chat
           v-for="(message, key) of messages"
           :message="message"
-          :key="key"
+          :key="message.chatId"
           :show="checked"
         ></content-chat>
       </div>
