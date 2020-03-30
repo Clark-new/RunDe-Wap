@@ -4,6 +4,9 @@ export default {
     const url = state.url;
     options = parseUrl(url);
     return options;
+  },
+  getVideoState(state) {
+    return state.isShowVideo;
   }
 };
 

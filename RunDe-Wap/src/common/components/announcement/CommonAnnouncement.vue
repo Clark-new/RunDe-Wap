@@ -15,6 +15,7 @@
 <script>
 import HuodeScene from "common/websdk/live";
 import { log } from "common/utils";
+import { mapMutations } from "vuex";
 
 export default {
   name: "CommonAnnouncement",
@@ -34,6 +35,9 @@ export default {
       } else {
         this.isShow = false;
       }
+    },
+    isShow(a) {
+      this.changeVideoState(!a);
     }
   },
   created() {
@@ -41,6 +45,7 @@ export default {
     this.addEvents();
   },
   methods: {
+    ...mapMutations(["changeVideoState"]),
     addEvents() {
       this.hd.onAnnouncement(data => {
         if (!data || data.action === "remove") {

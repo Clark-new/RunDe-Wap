@@ -1,5 +1,5 @@
 <template>
-  <div class="player-wrapper">
+  <div class="player-wrapper" v-show="isShowVideo">
     <div class="live-player" id="livePlayer"></div>
   </div>
 </template>
@@ -17,14 +17,13 @@ export default {
   name: "Player",
   mixins: [Mixins],
   computed: {
-    ...mapState(["playState"])
+    ...mapState(["playState", "isShowVideo"])
   },
   methods: {
     ...mapMutations(["changePlayState"]),
     addEvents() {
       this.hd.onPlayerLoad(video => {
         const player = video;
-
         this.on("toggleplay", () => {
           log("playState", this.playState);
           if (this.playState) {

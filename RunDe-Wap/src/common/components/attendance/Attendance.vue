@@ -28,6 +28,7 @@
 import HuodeScene from "common/websdk/live";
 import Mixins from "common/mixins";
 import { log } from "common/utils";
+import { mapMutations } from "vuex";
 
 export default {
   name: "Attendance",
@@ -39,6 +40,7 @@ export default {
       sub: "各位同学开始签到",
       status: "",
       timer: 0,
+      showPanel: false,
       info: {
         pid: "",
         expireTime: "",
@@ -58,7 +60,13 @@ export default {
       }
     }
   },
+  watch: {
+    showPanel(a) {
+      this.changeVideoState(!a);
+    }
+  },
   methods: {
+    ...mapMutations(["changeVideoState"]),
     addEvents() {
       this.hd.onStartAttendance(result => {
         log("onStartAttendance", result);
@@ -70,6 +78,7 @@ export default {
           this.status = "timer";
           this.startTimer();
         }
+        this.showPanel = true;
         // 接收到签到时，如果时全屏状态，需要取消全屏
         this.bus.$emit("exitFullscreen");
         log("onStartAttendance exitFullscreen");
@@ -77,11 +86,13 @@ export default {
       this.hd.onEndAttendance(result => {
         log("onEndAttendance", result);
         this.show = false;
+        this.showPanel = false;
       });
     },
     onEnd() {
       this.delay(() => {
         this.show = false;
+        this.showPanel = false;
       }, 2000);
     },
     onClosed() {

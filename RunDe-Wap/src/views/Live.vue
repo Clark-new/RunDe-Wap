@@ -209,13 +209,9 @@ export default {
       this.on("closePopup", () => {
         this.closePopup();
       });
-      this.bus.$on("closeVideo", (b)=> {
-        this.panel.showSubWindows = !b; //隐藏小窗时候，panel收缩
-      })
       this.hd.onQuestionnairePublish(data => {
         log("onQuestionnairePublish", data);
         if (data.success) {
-
           this.formateQuestionnaire(data.datas);
         }
         // 接收到问卷时，如果时全屏状态，需要取消全屏

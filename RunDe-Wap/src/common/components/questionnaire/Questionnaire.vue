@@ -59,9 +59,9 @@
 
             <div class="questionnaire-footer-wrap">
               <div
-                      class="questionnaire-footer-btn-wrap"
-                      @click="onclickResult"
-                      v-show="isShowResult"
+                class="questionnaire-footer-btn-wrap"
+                @click="onclickResult"
+                v-show="isShowResult"
               >
                 <div class="questionnaire-footer-btn">我知道了</div>
               </div>
@@ -91,6 +91,7 @@
 import AnimationFade from "common/components/animation/fade/Fade";
 import HuodeScene from "common/websdk/live";
 import { log } from "common/utils";
+import { mapMutations } from "vuex";
 
 export default {
   name: "Questionnaire",
@@ -117,6 +118,7 @@ export default {
       result: [],
       max: 1,
       disabled: false,
+      showQuestion: false,
       show: false,
       success: true,
       popup: {
@@ -135,22 +137,21 @@ export default {
       }
       return result;
     }
-
   },
   watch: {
     questionnaire() {
       this.isShowQuestionnaireWrapper = true;
       this.isShowQuestionnaire = true;
       this.disabled = false;
+      this.showQuestion = true;
       this.result = [];
-
     },
-    isShowQuestionnaireWrapper(a,b){
-      this.bus.$emit("controlVideoPanel",b)//开始弹框浮层后隐藏video元素
+    showQuestion(a) {
+      this.changeVideoState(!a);
     }
-
   },
   methods: {
+    ...mapMutations(["changeVideoState"]),
     isActive(key) {
       let active = false;
       active = this.compareResult(key);
@@ -186,15 +187,17 @@ export default {
       this.messageBoxTimer && clearTimeout(this.messageBoxTimer);
       this.messageBoxTimer = setTimeout(() => {
         this.show = false;
+        this.showQuestion = false;
         this.messageBoxTimer = 0;
       }, this.messageBoxTimerInterval);
     },
     onClose() {
       this.isShowQuestionnaireWrapper = false;
       this.isShowQuestionnaire = false;
+      this.showQuestion = false;
     },
-    onclickResult(){
-      this.isShowQuestionnaire = false;
+    onclickResult() {
+      this.onClose();
     },
     onSubmit() {
       let selects = this.formatResult;
@@ -251,6 +254,7 @@ export default {
       if (this.success && this.questionnaire.submitedAction) {
         this.isShowQuestionnaire = true;
         this.isShowResult = true;
+        this.showQuestion = true;
         this.disabled = true;
       } else {
         this.stopQuestionnaire();
@@ -275,6 +279,7 @@ export default {
       this.isShowQuestionnaire = false;
       this.isShowResult = false;
       this.disabled = false;
+      this.showQuestion = false;
       this.messageBoxTimer && clearTimeout(this.messageBoxTimer);
       this.messageBoxTimer = 0;
       this.show = false;

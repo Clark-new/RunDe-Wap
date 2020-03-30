@@ -5,7 +5,8 @@ export default {
   viewer: {},
   template: {},
   lists: lists(),
-  allowChat: true
+  allowChat: true,
+  isShowVideo:true//解决微信中的视频浮层问题
 };
 
 function getDefaultUrl() {

@@ -17,5 +17,8 @@ export default {
   },
   changeAllowChat(state, status) {
     state.allowChat = status;
+  },
+  changeVideoState(state, status) {
+    state.isShowVideo = status;
   }
 };

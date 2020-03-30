@@ -95,9 +95,9 @@ export default {
   },
   computed: {
     ...mapState(["viewer", "allowChat"]),
-    limitMessages:{
-      cache:false,
-      get:function(){
+    limitMessages: {
+      cache: false,
+      get: function() {
         let messages = [...this.messages];
         messages = messages.filter(item => {
           if (item.userId === this.viewer.id) {
@@ -236,11 +236,6 @@ export default {
       this.curEmoKey.state = STATE.CUR_EMO_STATE.EMOTICON;
       this.giftsOne.state = STATE.GIFTS_ONE.ONE;
       this.plusReduceTwo.state = STATE.PLUS_REDUCE_TWO.TWO;
-      let timeId = setTimeout(()=>{
-        this.field.scrollIntoView();
-        this.field.scrollIntoViewIfNeeded();
-        clearTimeout(timeId);
-      },100)
       this.$emit("closepopup");
     },
     onBlur() {
@@ -251,7 +246,7 @@ export default {
           this.initButtonState();
         }
         this.timer = 0;
-      },10);
+      }, 10);
     },
     initButtonState() {
       this.curEmoKey.state = STATE.CUR_EMO_STATE.CURRICULUM;
@@ -321,7 +316,7 @@ export default {
         };
         // 将接收到的聊天信息数据添加到信息池中
         this.messages.push(formatMsg);
-        if(parseInt(formatMsg.status,10) === 0){
+        if (parseInt(formatMsg.status, 10) === 0) {
           // 发送弹幕
           this.sendBarrage(_msg);
         }

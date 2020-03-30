@@ -62,7 +62,7 @@ export default {
   name: "Index",
   data() {
     return {
-      url: "https://view.csslcloud.net/api/view/index?roomid=55193368FF1917B39C33DC5901307461&userid=40A53587B37573BD",
+      url: "https://view.csslcloud.net/api/view/index?roomid=D4A2E14A89D372399C33DC5901307461&userid=2876043E67CBDC9D",
       viewername: "名称",
       viewertoken: ""
     };
@@ -89,7 +89,7 @@ export default {
   mounted() {
     this.url =
       this.currentUrl ||
-      "https://view.csslcloud.net/api/view/index?roomid=55193368FF1917B39C33DC5901307461&userid=40A53587B37573BD";
+      "https://view.csslcloud.net/api/view/index?roomid=D4A2E14A89D372399C33DC5901307461&userid=2876043E67CBDC9D";
   }
 };
 </script>
