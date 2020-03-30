@@ -124,6 +124,7 @@ export default {
     },
     onAttendanceSuccess() {
       this.status = "success";
+      this.stopTimer();
       this.title = "恭喜您，签到成功！";
       this.onEnd();
     },
