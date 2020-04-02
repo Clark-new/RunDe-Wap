@@ -62,7 +62,8 @@ export default {
   name: "Index",
   data() {
     return {
-      url: "https://view.csslcloud.net/api/view/index?roomid=D4A2E14A89D372399C33DC5901307461&userid=2876043E67CBDC9D",
+      url:
+        "https://view.csslcloud.net/api/view/index?roomid=D4A2E14A89D372399C33DC5901307461&userid=2876043E67CBDC9D",
       viewername: "名称",
       viewertoken: ""
     };

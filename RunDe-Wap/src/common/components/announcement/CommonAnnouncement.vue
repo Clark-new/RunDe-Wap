@@ -37,7 +37,7 @@ export default {
       }
     },
     isShow(a) {
-      this.changeVideoState(!a);
+      this.changeAnnounceState(a);
     }
   },
   created() {
@@ -45,7 +45,7 @@ export default {
     this.addEvents();
   },
   methods: {
-    ...mapMutations(["changeVideoState"]),
+    ...mapMutations(["changeAnnounceState"]),
     addEvents() {
       this.hd.onAnnouncement(data => {
         if (!data || data.action === "remove") {

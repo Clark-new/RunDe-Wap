@@ -407,6 +407,9 @@ export default {
 .wrapper
   wrapper()
   position absolute
+  max-width 100%
+  max-height 100%
+  text-size-adjust  none
   display flex
   flex-direction column
   .top

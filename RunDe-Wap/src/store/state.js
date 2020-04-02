@@ -6,14 +6,9 @@ export default {
   template: {},
   lists: lists(),
   allowChat: true,
-  isShowVideo:true//解决微信中的视频浮层问题
+  showAnnounce: false,
+  isShowVideo: true
 };
-
-function getDefaultUrl() {
-  let defaultUrl = "";
-  defaultUrl = localStorage.url;
-  return defaultUrl;
-}
 
 // 配置移动端直播目录列表
 function lists() {

@@ -275,6 +275,7 @@ export default {
           this.messages.forEach(item => {
             if (item.chatId === id) {
               item.status = status;
+              this.sendBarrage(item.msg);
             }
           });
         }
@@ -308,6 +309,7 @@ export default {
           userCustomMark: _msg.usercustommark,
           groupId: _msg.groupId,
           time: _msg.time,
+          msg: _msg,
           status: _msg.status,
           chatId: _msg.chatId,
           type: type,

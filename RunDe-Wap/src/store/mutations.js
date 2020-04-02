@@ -20,5 +20,8 @@ export default {
   },
   changeVideoState(state, status) {
     state.isShowVideo = status;
+  },
+  changeAnnounceState(state, status) {
+    state.showAnnounce = status;
   }
 };

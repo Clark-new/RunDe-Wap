@@ -3,7 +3,7 @@
     <div class="chats-container" ref="Container" @click="handleClick">
       <div class="chats-group" ref="Group">
         <content-chat
-          v-for="(message, key) of messages"
+          v-for="message of messages"
           :message="message"
           :key="message.chatId"
           :show="checked"
@@ -48,6 +48,11 @@ export default {
       return this.$refs.Group;
     }
   },
+  watch: {
+    checked() {
+      this.scrollToBottom();
+    }
+  },
   methods: {
     addEvents() {
       this.on("scrolltobottom", () => {
@@ -56,6 +61,9 @@ export default {
       });
       this.on("scrollrefresh", () => {
         log("scrollrefresh");
+        this.scrollRefresh();
+      });
+      this.on("popupchange", () => {
         this.scrollRefresh();
       });
     },

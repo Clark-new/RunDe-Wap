@@ -9,6 +9,9 @@
       @clicked="onClicked($event)"
       @touchend.native="onTouchend"
       ref="Drag"
+      :parentLimitation="true"
+      :parentW="dragMaxWidth"
+      :parentH="dragMaxHeight"
     >
       <div class="sub-wrap" v-show="show" ref="subParent">
         <div class="close-wrap" v-show="showClose">
@@ -31,7 +34,6 @@
 import LivePlayer from "../player/Player";
 import Mixins from "common/mixins";
 import VueDragResize from "vue-drag-resize";
-import { log } from "common/utils";
 
 export default {
   name: "SubWindows",
@@ -102,6 +104,12 @@ export default {
       height = (height / size) * this.fontSize;
       return height;
     },
+    dragMaxWidth() {
+      return window.innerWidth;
+    },
+    dragMaxHeight() {
+      return window.innerHeight;
+    },
     course() {
       const type = this.type;
       return type + "-course";
@@ -169,11 +177,11 @@ export default {
     },
     enter() {
       this.$emit("dragenter");
-      log("dragenter");
+      // log("dragenter");
     },
     leave() {
       this.$emit("dragleave");
-      log("dragleave");
+      // log("dragleave");
     },
     reset() {
       this.Drag.$el.style.top = 0;

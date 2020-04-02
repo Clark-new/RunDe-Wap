@@ -97,10 +97,8 @@ export default {
           this.emit("popudown");
           log("popudown");
         }
-
         this.emit("popupchange");
-
-        this.emit("scrolltobottom");
+        // this.emit("scrolltobottom");
       });
     },
     onEmoticonClick(options) {

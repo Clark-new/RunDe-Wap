@@ -65,7 +65,6 @@ export default {
   },
   mounted() {
     if (this.message.active) {
-
       this.isShow = this.show;
     } else {
       this.isShow = true;
@@ -78,6 +77,7 @@ export default {
 @import "~styles/mixins.styl"
 
 .chat-item
+  text-size-adjust  none
   overflow hidden
   margin-bottom 40px
   width 100%

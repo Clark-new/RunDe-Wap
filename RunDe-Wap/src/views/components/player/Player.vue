@@ -1,5 +1,5 @@
 <template>
-  <div class="player-wrapper" v-show="isShowVideo">
+  <div class="player-wrapper" v-show="getVideoState">
     <div class="live-player" id="livePlayer"></div>
   </div>
 </template>
@@ -10,14 +10,15 @@
  * */
 import HuodeScene from "common/websdk/live";
 import Mixins from "common/mixins";
-import { mapState, mapMutations } from "vuex";
+import { mapGetters, mapState, mapMutations } from "vuex";
 import { log } from "common/utils";
 
 export default {
   name: "Player",
   mixins: [Mixins],
   computed: {
-    ...mapState(["playState", "isShowVideo"])
+    ...mapState(["playState"]),
+    ...mapGetters(["getVideoState"])
   },
   methods: {
     ...mapMutations(["changePlayState"]),
