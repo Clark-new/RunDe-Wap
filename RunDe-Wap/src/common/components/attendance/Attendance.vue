@@ -62,11 +62,11 @@ export default {
   },
   watch: {
     showPanel(a) {
-      this.changeVideoState(!a);
+      this.changePunchState(a);
     }
   },
   methods: {
-    ...mapMutations(["changeVideoState"]),
+    ...mapMutations(["changePunchState"]),
     addEvents() {
       this.hd.onStartAttendance(result => {
         log("onStartAttendance", result);

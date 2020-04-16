@@ -23,5 +23,8 @@ export default {
   },
   changeAnnounceState(state, status) {
     state.showAnnounce = status;
+  },
+  changePunchState(state, status) {
+    state.showPunch = status;
   }
 };

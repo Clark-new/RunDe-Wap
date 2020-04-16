@@ -275,7 +275,9 @@ export default {
           this.messages.forEach(item => {
             if (item.chatId === id) {
               item.status = status;
-              this.sendBarrage(item.msg);
+              if (!item.self) {
+                this.sendBarrage(item.msg);
+              }
             }
           });
         }
@@ -310,6 +312,7 @@ export default {
           groupId: _msg.groupId,
           time: _msg.time,
           msg: _msg,
+          self: self,
           status: _msg.status,
           chatId: _msg.chatId,
           type: type,
@@ -318,7 +321,7 @@ export default {
         };
         // 将接收到的聊天信息数据添加到信息池中
         this.messages.push(formatMsg);
-        if (parseInt(formatMsg.status, 10) === 0) {
+        if (parseInt(formatMsg.status, 10) === 0 || self) {
           // 发送弹幕
           this.sendBarrage(_msg);
         }

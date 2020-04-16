@@ -5,13 +5,14 @@
       :isResizable="drag.resizable"
       :w="dragWidtch"
       :h="dragHeight"
+      :isDraggable="drag.canDragged"
       @dragging="onDragGing"
       @clicked="onClicked($event)"
       @touchend.native="onTouchend"
       ref="Drag"
       :parentLimitation="true"
-      :parentW="dragMaxWidth"
-      :parentH="dragMaxHeight"
+      :parentW="dragMaxW"
+      :parentH="dragMaxH"
     >
       <div class="sub-wrap" v-show="show" ref="subParent">
         <div class="close-wrap" v-show="showClose">
@@ -58,6 +59,14 @@ export default {
     component: {
       type: String,
       default: "LivePlayer"
+    },
+    dragMaxW: {
+      type: Number,
+      default: 0
+    },
+    dragMaxH: {
+      type: Number,
+      default: 0
     }
   },
   data() {
@@ -68,6 +77,7 @@ export default {
         resizable: false,
         width: 300,
         height: 168,
+        canDragged: true,
         rectangle: {
           width: 0,
           height: 0,
@@ -83,6 +93,9 @@ export default {
     },
     show(newValue) {
       this.showClose = newValue;
+      if (!newValue) {
+        this.drag.canDragged = false;
+      }
       this.reset();
     }
   },
@@ -103,12 +116,6 @@ export default {
       const size = 75;
       height = (height / size) * this.fontSize;
       return height;
-    },
-    dragMaxWidth() {
-      return window.innerWidth;
-    },
-    dragMaxHeight() {
-      return window.innerHeight;
     },
     course() {
       const type = this.type;
@@ -169,8 +176,14 @@ export default {
       const rect = options.rect;
       const height = rect.height;
       const rectTop = rect.top;
+      const rectLeft = rect.left;
+      const width = rect.width;
       if (rectTop >= 0 && rectTop <= height) {
-        options.enter && options.enter();
+        if (rectLeft <= width && rectLeft >= 0) {
+          options.enter && options.enter();
+        } else {
+          options.leave && options.leave();
+        }
       } else {
         options.leave && options.leave();
       }

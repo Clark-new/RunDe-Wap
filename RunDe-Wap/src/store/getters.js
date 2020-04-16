@@ -6,7 +6,7 @@ export default {
     return options;
   },
   getVideoState(state) {
-    return state.isShowVideo && !state.showAnnounce;
+    return state.isShowVideo && !state.showAnnounce && !state.showPunch;
   }
 };
 

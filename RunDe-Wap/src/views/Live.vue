@@ -52,6 +52,8 @@
       @dragenter="onDragEnter"
       @dragleave="onDragLeave"
       @reset="onReset"
+      :drag-max-h="dragMaxH()"
+      :drag-max-w="dragMaxW"
     ></sub-windows>
   </div>
 </template>
@@ -182,6 +184,12 @@ export default {
   computed: {
     windowsShow() {
       return this.windows.show;
+    },
+    dragMaxW() {
+      return window.innerWidth;
+    },
+    containerH() {
+      return this.refs.container.offsetHeight;
     }
   },
   watch: {
@@ -195,6 +203,9 @@ export default {
       this.hd = new HuodeScene();
       this.login();
       this.onEvents();
+    },
+    dragMaxH() {
+      return window.innerHeight - 210 < 380 ? 380 : window.innerHeight - 210;
     },
     onEvents() {
       this.on("curriculumclick", options => {

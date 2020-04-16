@@ -7,7 +7,8 @@ export default {
   lists: lists(),
   allowChat: true,
   showAnnounce: false,
-  isShowVideo: true
+  isShowVideo: true,
+  showPunch: false
 };
 
 // 配置移动端直播目录列表
